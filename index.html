@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camisas Únicas - Loja Online</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #f0f4ff, #e3eafc);
+      color: #333;
+    }
+
+    header {
+      background: #4A90E2;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header nav a, header nav button {
+      margin-left: 15px;
+      color: white;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    header nav a:hover, header nav button:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #6DD5FA, #2980B9);
+      color: white;
+      border-bottom-left-radius: 50px;
+      border-bottom-right-radius: 50px;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+      animation: fadeInUp 1s ease;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #FF6B6B;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+      background-color: #e74c3c;
+    }
+
+    .categorias {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .categorias h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    .grid-categorias {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .categoria-card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .categoria-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    }
+
+    .slider-fake {
+      margin: 50px auto;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(45deg, #FFAFBD, #ffc3a0);
+      border-radius: 20px;
+      color: #333;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: #121212;
+      color: #ddd;
+    }
+
+    body.dark-mode header {
+      background: #1e1e1e;
+    }
+
+    body.dark-mode .hero {
+      background: #333;
+    }
+
+    body.dark-mode .categorias h2 {
+      color: #fff;
+    }
+
+    body.dark-mode .categoria-card {
+      background: #222;
+      color: #eee;
+    }
+
+    body.dark-mode .slider-fake {
+      background: #444;
+      color: #ccc;
+    }
+
+    body.dark-mode footer {
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">👕 Camisas Únicas</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <button id="darkModeToggle">🌙</button>
+    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Vista seu Estilo!</h1>
+  <p>As camisas mais estilosas do Brasil te esperam aqui.</p>
+  <a href="produtos.html" class="btn-primary">Ver Catálogo</a>
+</section>
+
+<section class="categorias">
+  <h2>Categorias Populares</h2>
+  <div class="grid-categorias">
+    <div class="categoria-card">Casual</div>
+    <div class="categoria-card">Esportiva</div>
+    <div class="categoria-card">Estampada</div>
+    <div class="categoria-card">Social</div>
+  </div>
+</section>
+
+<section class="slider-fake">
+  <h2>Promoção da Semana</h2>
+  <p>Compre 2 camisas e ganhe 10% de desconto!</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 Camisas Únicas</p>
+  <p><a href="#" style="color:#ccc;">Instagram</a> | <a href="#" style="color:#ccc;">WhatsApp</a> | <a href="#" style="color:#ccc;">Contato</a></p>
+</footer>
+
+<script>
+  // Dark Mode Toggle
+  document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+
+  // Carrinho (contador simples só pra exibir)
+  document.getElementById('cartCount').textContent = (JSON.parse(localStorage.getItem('cart')) || []).length;
+</script>
+<!-- ... seu conteúdo anterior ... -->
+
+<footer>
+  <p>&copy; 2025 Camisas Únicas</p>
+  <p><a href="#" style="color:#ccc;">Instagram</a> | <a href="#" style="color:#ccc;">WhatsApp</a> | <a href="#" style="color:#ccc;">Contato</a></p>
+</footer>
+
+<script>
+  // Ao carregar a página, verifica o modo salvo
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Toggle e salvar no LocalStorage
+  document.getElementById('darkModeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+  });
+
+  // Atualiza contador do carrinho
+  document.getElementById('cartCount').textContent = (JSON.parse(localStorage.getItem('cart')) || []).length;
+</script>
+
+</body>
+</html>
+
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

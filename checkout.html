@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar Compra</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">👕 Camisas Únicas</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <button id="darkModeToggle">🌙</button>
+    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="checkout">
+  <h2>Finalizar Pedido</h2>
+
+  <form id="checkoutForm" onsubmit="return finalizarPedido()">
+    <label for="nome">Nome Completo:</label>
+    <input type="text" id="nome" required>
+
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" required>
+
+    <label for="endereco">Endereço de Entrega:</label>
+    <textarea id="endereco" rows="3" required></textarea>
+
+    <label for="pagamento">Forma de Pagamento:</label>
+    <select id="pagamento" required>
+      <option value="">Selecione</option>
+      <option value="Pix">Pix</option>
+      <option value="Cartão">Cartão de Crédito</option>
+      <option value="Boleto">Boleto Bancário</option>
+    </select>
+
+    <button type="submit" class="btn-checkout">Confirmar Pedido</button>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Camisas Únicas</p>
+  <p><a href="#">Instagram</a> | <a href="#">WhatsApp</a> | <a href="#">Contato</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function finalizarPedido() {
+  alert("Pedido finalizado com sucesso! Obrigado pela compra 😊");
+  localStorage.removeItem('cart');
+  window.location.href = "pedido-finalizado.html";
+  return false;
+}
+</script>
+
+</body>
+</html>

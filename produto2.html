@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camisa Esportiva Verde - Detalhes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo">👕 Camisas Únicas</div>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="produtos.html">Produtos</a>
+    <button id="darkModeToggle">🌙</button>
+    <button id="cartBtn">🛒 <span id="cartCount">0</span></button>
+  </nav>
+</header>
+
+<section class="produto-detalhe">
+  <div class="produto-img">
+    <img src="images/camisa3.jpg" alt="Camisa Esportiva Verde">
+  </div>
+
+  <div class="produto-info">
+    <h2>Camisa Esportiva Verde</h2>
+    <p>Camisa leve, perfeita para quem busca conforto em atividades físicas. Tecido respirável.</p>
+    <p><strong>Tamanhos:</strong> P, M, G</p>
+    <p><strong>Preço:</strong> R$ 79,90</p>
+    <button onclick="addToCart('Camisa Esportiva Verde', 79.90)" class="btn-primary">Adicionar ao Carrinho</button>
+  </div>
+</section>
+
+<!-- Modal Carrinho -->
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCart()">×</span>
+    <h2>Seu Carrinho</h2>
+    <ul id="cartItems"></ul>
+    <p>Total: R$ <span id="cartTotal">0.00</span></p>
+    <a href="checkout.html"><button class="btn-checkout">Finalizar Compra</button></a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2025 Camisas Únicas</p>
+  <p><a href="#">Instagram</a> | <a href="#">WhatsApp</a> | <a href="#">Contato</a></p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
